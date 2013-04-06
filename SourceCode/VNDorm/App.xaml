@@ -1,0 +1,60 @@
+﻿<Application x:Class="VNDorm.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             StartupUri="view/MainWindow.xaml"
+             xmlns:View="clr-namespace:VNDorm.View"
+             xmlns:ViewModel="clr-namespace:VNDorm.ViewModel"
+             
+             xmlns:StudentView="clr-namespace:VNDorm.View.Student"
+             xmlns:StudentViewModel ="clr-namespace:VNDorm.ViewModel.Student"
+    
+             xmlns:AccountView="clr-namespace:VNDorm.View.Account"
+             xmlns:AccountViewModel ="clr-namespace:VNDorm.ViewModel.Account"
+             
+             DispatcherUnhandledException="APP_DispatcherUnhandledException"
+             >
+    <!--StartupUri="view/MainWindow.xaml"-->
+    <Application.Resources>
+        <!--Global View Model Locator-->
+        <ResourceDictionary>
+
+            <ViewModel:ViewModelLocator x:Key="Locator" d:IsDataSource="True" />
+            
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Colours.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Fonts.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.Tooltip.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.Buttons.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/Selen.Wpf.Core;component/Resources.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/Selen.Wpf.SystemStyles;component/Styles.xaml"/>
+                <ResourceDictionary Source="Skins/Language/english.xaml"/>
+                <ResourceDictionary Source="Skins/Language/vietnamese.xaml"/>
+                <ResourceDictionary Source="Skins/MainSkin.xaml"/>
+                <ResourceDictionary>
+                    
+                    <DataTemplate DataType="{x:Type StudentViewModel:StudentMainViewModel}">
+                        <StudentView:StudentMainView/>
+                    </DataTemplate>
+                    
+                    <DataTemplate DataType="{x:Type AccountViewModel:AccountMainViewModel}">
+                        <AccountView:AccountMainView/>
+                    </DataTemplate>
+
+                    <DataTemplate DataType="{x:Type ViewModel:StatusViewModel}">
+                        <View:StatusView/>
+                    </DataTemplate>
+
+                    <DataTemplate DataType="{x:Type ViewModel:LogViewModel}">
+                        <View:LogView/>
+                    </DataTemplate>
+                    
+                </ResourceDictionary>
+                
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+    
+</Application>

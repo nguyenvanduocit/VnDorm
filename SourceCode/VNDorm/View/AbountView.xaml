@@ -1,0 +1,22 @@
+﻿<Window x:Class="VNDorm.View.AbountView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Abount VnDorm" Height="300" Width="300"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        WindowStartupLocation="CenterScreen"
+        Background="{StaticResource LightBackground}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="65*"/>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="184*"/>
+        </Grid.RowDefinitions>
+        <TextBlock Foreground="{StaticResource Foreground}" Margin="130,10,10,10" FontSize="37" TextWrapping="Wrap" Text="VNDorm"/>
+        <TextBlock Foreground="{StaticResource Foreground}" Margin="205,0,10,0" Grid.Row="1" TextWrapping="Wrap" Text="Version 1.0.0"/>
+        <TextBlock Foreground="{StaticResource Foreground}" HorizontalAlignment="Left" Height="164" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="272" Margin="10,10,0,0">
+            Author :
+            Nguyễn Văn Được, Nguyễn Gia Tuấn
+        </TextBlock>
+
+    </Grid>
+</Window>

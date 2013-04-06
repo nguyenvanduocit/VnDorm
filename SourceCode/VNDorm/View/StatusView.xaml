@@ -1,0 +1,17 @@
+﻿<UserControl x:Class="VNDorm.View.StatusView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             Background="{StaticResource LightBackground}"
+             d:DesignHeight="23" d:DesignWidth="1292"
+             DataContext="{Binding Source={StaticResource Locator}, Path=StatusVM}">
+            <StatusBar Height="23" DockPanel.Dock="Bottom" Background="#007acc">
+                <StatusBarItem>
+                    <StackPanel Orientation="Horizontal">
+                <TextBlock Foreground="{StaticResource Foreground}" Text="{Binding statusText}"/>
+                    </StackPanel>
+                </StatusBarItem>
+            </StatusBar>
+</UserControl>

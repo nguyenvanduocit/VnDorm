@@ -1,0 +1,111 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <!--Application info-->
+    <system:String x:Key="lngAppName">Dorm Manager</system:String>
+    <system:String x:Key="lngAppTitle">Dorm Manager</system:String>
+
+    <system:String x:Key="lngMainTitle">Main</system:String>
+
+    <!--Ribbon menu name-->
+    <system:String x:Key="lngStartPageTabName">Khởi động</system:String>
+    <system:String x:Key="lngStudent">Sinh viên</system:String>
+    <system:String x:Key="lngRoom">Phòng</system:String>
+    <system:String x:Key="lngEquipment">Thiết bị</system:String>
+    <system:String x:Key="lngStaff">Nhân viên</system:String>
+    <system:String x:Key="lngHelp">Giúp đỡ</system:String>
+    <system:String x:Key="lngReport">Báo cáo</system:String>
+    <system:String x:Key="lngTool">Công cụ</system:String>
+    <system:String x:Key="lngAccount">Tài khoản</system:String>
+    <system:String x:Key="lngModule">Phân hệ</system:String>
+    <system:String x:Key="lngLog">Nhật ký</system:String>
+    <system:String x:Key="lngTime">Thời gian</system:String>
+    <system:String x:Key="lngContent">Nội dung</system:String>
+
+    <!--File menu-->
+    <system:String x:Key="lngSetting">Cài đặt</system:String>
+    <system:String x:Key="lngExit">Thoát</system:String>
+    <system:String x:Key="lngAbout">Giới thiệu</system:String>
+    <system:String x:Key="lngUpdate">Nâng cấp</system:String>
+    <system:String x:Key="lngOption">Cài đặt</system:String>
+
+
+    <!--Fiels-->
+    <system:String x:Key="lngUser">User</system:String>
+    <system:String x:Key="lngPassword">Mật khẩu</system:String>
+    <system:String x:Key="lngEmail">Email</system:String>
+    <system:String x:Key="lngName">Tên</system:String>
+    <system:String x:Key="lngFirstName">Tên</system:String>
+    <system:String x:Key="lngLastName">Họ-lót</system:String>
+    <system:String x:Key="lngAddress">Địa chỉ</system:String>
+    <system:String x:Key="lngClass">Lớp</system:String>
+    <system:String x:Key="lngTown">Dãy</system:String>
+    <system:String x:Key="lngFloor">Lầu</system:String>
+    <system:String x:Key="lngFaculty">Khoa</system:String>
+    <system:String x:Key="lngSchoolYear">Năm học</system:String>
+    <system:String x:Key="lngStudentID">MSSV</system:String>
+    <system:String x:Key="lngGender">Giới tính</system:String>
+
+    <system:String x:Key="lngEthnicity">Dân tộc</system:String>
+    <system:String x:Key="lngBirthDay">Ngày sinh</system:String>
+    <system:String x:Key="lngReligion">Tôn giáo</system:String>
+    <system:String x:Key="lngIdentityCard">CMND</system:String>
+    <system:String x:Key="lngDate">Identity No</system:String>
+    <system:String x:Key="lngValidityDate">Ngày cấp</system:String>
+    <system:String x:Key="lngPhoneNumber">Số ĐT</system:String>
+    <system:String x:Key="lngProvince">Nơi cấp</system:String>
+    <system:String x:Key="lngPermanent">Địa chỉ</system:String>
+
+
+    <!--Student info-->
+
+
+    <!--Control-->
+    <system:String x:Key="lngImport">Nhập danh sách</system:String>
+    <system:String x:Key="lngExport">Xuất danh sách</system:String>
+    <system:String x:Key="lngSave">Lưu</system:String>
+    <system:String x:Key="lngAdd">Thêm</system:String>
+    <system:String x:Key="lngEdit">Sửa</system:String>
+    <system:String x:Key="lngCancel">Hủy</system:String>
+    <system:String x:Key="lngDelete">Xóa</system:String>
+    <system:String x:Key="lngReset">Làm sạch</system:String>
+    <system:String x:Key="lngNew">Mới</system:String>
+    <system:String x:Key="lngLogin">Đăng nhập</system:String>
+    <system:String x:Key="lngFind">Tìm</system:String>
+
+    <!--Student Manager-->
+    <system:String x:Key="lngAddStudent">Thêm sinh viên</system:String>
+    <system:String x:Key="lngAddStudentToolTip">Ấn vào đây để thêm sinh viên</system:String>
+    <system:String x:Key="lngImportStudent">Nhập danh sách</system:String>
+    <system:String x:Key="lngExportStudent">Xuất danh sách</system:String>
+    <system:String x:Key="lngPrintStudent">In danh sách</system:String>
+    <system:String x:Key="lngFindStudent">Tìm sinh viên</system:String>
+    <system:String x:Key="lngFindStudentToolTip">Ấn vào đây để tìm sinh viên</system:String>
+    <system:String x:Key="lngEditStudent">Sửa sinh viên</system:String>
+    <system:String x:Key="lngDeleteStudent">Xóa sinh viên</system:String>
+    <system:String x:Key="lngListStudent">Danh sách sinh viên</system:String>
+
+    <!--Acount manager-->
+    <system:String x:Key="lngAddAccount">Thêm tài khoản</system:String>
+    <system:String x:Key="lngAddAccountToolTip">Ấn vào đây để thêm tài khoản</system:String>
+    <system:String x:Key="lngImportAccount">Nhập danh sách</system:String>
+    <system:String x:Key="lngExportAccount">Xuất danh sách</system:String>
+    <system:String x:Key="lngPrintAccount">In danh sách</system:String>
+    <system:String x:Key="lngFindAccount">Tìm sinh viên</system:String>
+    <system:String x:Key="lngFindAccountToolTip">Ấn và đây để thêm sinh viên</system:String>
+    <system:String x:Key="lngEditAccount">Edit account</system:String>
+    <system:String x:Key="lngRole">Quyền</system:String>
+
+    <!--Room-->
+    <system:String x:Key="lngEnglist">English</system:String>
+    <system:String x:Key="lngVietNam">Việt Nam</system:String>
+    <system:String x:Key="lngLanguage">Language</system:String>
+    <system:String x:Key="lngAbount">Giới thiệu</system:String>
+
+    <system:String x:Key="lngAction">Hành động</system:String>
+
+
+
+    <system:String x:Key="lngStudentHelp">Để chép danh sách sinh viên ra Excel, bạn chọn các dòng cần chép, ấn ctrl + C, chuyển qua excel, ấn ctrl + V</system:String>
+    <system:String x:Key="lngAccountHelp">Bạn không được phép sửa username, nếu muốn thay đổi username, hãy xóa account đó đi, và tạo lại account khác</system:String>
+</ResourceDictionary>

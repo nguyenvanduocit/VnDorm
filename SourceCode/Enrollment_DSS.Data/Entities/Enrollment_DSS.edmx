@@ -1,0 +1,491 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Enrollment_DSSModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="Enrollment_DSSModelStoreContainer">
+    <EntitySet Name="Logs" EntityType="Enrollment_DSSModel.Store.Logs" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Faculties" EntityType="Enrollment_DSSModel.Store.Faculties" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Students" EntityType="Enrollment_DSSModel.Store.Students" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ImageStores" EntityType="Enrollment_DSSModel.Store.ImageStores" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Rooms" EntityType="Enrollment_DSSModel.Store.Rooms" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="RowRooms" EntityType="Enrollment_DSSModel.Store.RowRooms" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Accounts" EntityType="Enrollment_DSSModel.Store.Accounts" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="NhanViens" EntityType="Enrollment_DSSModel.Store.NhanViens" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Roles" EntityType="Enrollment_DSSModel.Store.Roles" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="RowRoomRoom" Association="Enrollment_DSSModel.Store.RowRoomRoom">
+      <End Role="RowRoom" EntitySet="RowRooms" />
+      <End Role="Room" EntitySet="Rooms" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Account_Role" Association="Enrollment_DSSModel.Store.FK_Account_Role">
+      <End Role="Role" EntitySet="Roles" />
+      <End Role="Account" EntitySet="Accounts" />
+    </AssociationSet>
+    <AssociationSet Name="RoomStudent" Association="Enrollment_DSSModel.Store.RoomStudent">
+      <End Role="Room" EntitySet="Rooms" />
+      <End Role="Student" EntitySet="Students" />
+    </AssociationSet>
+    <AssociationSet Name="FacultyStudent" Association="Enrollment_DSSModel.Store.FacultyStudent">
+      <End Role="Faculty" EntitySet="Faculties" />
+      <End Role="Student" EntitySet="Students" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Logs">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" Nullable="false" MaxLength="150" />
+    <Property Name="Time" Type="datetime" Nullable="true" />
+    <Property Name="NoiDung" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="PhanHe" Type="nvarchar" Nullable="true" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Faculties">
+    <Key>
+      <PropertyRef Name="FacultyID" />
+    </Key>
+    <Property Name="FacultyID" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="FacultyName" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Students">
+    <Key>
+      <PropertyRef Name="StudentID" />
+    </Key>
+    <Property Name="StudentID" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="FirstName" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="LastName" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Sex" Type="nvarchar" Nullable="true" MaxLength="5" />
+    <Property Name="BirthDay" Type="datetime" Nullable="true" />
+    <Property Name="ClassID" Type="nvarchar" Nullable="true" MaxLength="20" />
+    <Property Name="Address" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Ethnic" Type="nvarchar" Nullable="true" MaxLength="100" />
+    <Property Name="Religion" Type="nvarchar" Nullable="true" MaxLength="100" />
+    <Property Name="Phone" Type="nvarchar" Nullable="true" MaxLength="20" />
+    <Property Name="IntoSchoolYear" Type="varchar" Nullable="true" MaxLength="4" />
+    <Property Name="FacultyID" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="IdentityNo" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="ValidityDate" Type="datetime" Nullable="false" />
+    <Property Name="Province" Type="nvarchar" Nullable="false" MaxLength="200" />
+    <Property Name="RoomID" Type="varchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="ImageStores">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OriginalPath" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="ImageData" Type="varbinary(max)" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Rooms">
+    <Key>
+      <PropertyRef Name="RoomID" />
+    </Key>
+    <Property Name="RoomID" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Name" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="Note" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="RowID" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="MaxStudent" Type="int" Nullable="true" />
+    <Property Name="Status" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RowRooms">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Name" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="Block" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="Floor" Type="int" Nullable="true" />
+    <Property Name="Note" Type="nvarchar" Nullable="true" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Accounts">
+    <Key>
+      <PropertyRef Name="UserName" />
+    </Key>
+    <Property Name="UserName" Type="nvarchar" Nullable="false" MaxLength="150" />
+    <Property Name="Password" Type="varchar" Nullable="true" MaxLength="32" />
+    <Property Name="RoleID" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="NhanViens">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="HoTen" Type="nvarchar(max)" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Roles">
+    <Key>
+      <PropertyRef Name="RoleID" />
+    </Key>
+    <Property Name="RoleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RoleName" Type="nvarchar" Nullable="true" MaxLength="250" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="true" />
+  </EntityType>
+  <Association Name="RowRoomRoom">
+    <End Role="RowRoom" Type="Enrollment_DSSModel.Store.RowRooms" Multiplicity="0..1" />
+    <End Role="Room" Type="Enrollment_DSSModel.Store.Rooms" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RowRoom">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Room">
+        <PropertyRef Name="RowID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Account_Role">
+    <End Role="Role" Type="Enrollment_DSSModel.Store.Roles" Multiplicity="0..1" />
+    <End Role="Account" Type="Enrollment_DSSModel.Store.Accounts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="RoleID" />
+      </Principal>
+      <Dependent Role="Account">
+        <PropertyRef Name="RoleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RoomStudent">
+    <End Role="Room" Type="Enrollment_DSSModel.Store.Rooms" Multiplicity="1" />
+    <End Role="Student" Type="Enrollment_DSSModel.Store.Students" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Room">
+        <PropertyRef Name="RoomID" />
+      </Principal>
+      <Dependent Role="Student">
+        <PropertyRef Name="RoomID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FacultyStudent">
+    <End Role="Faculty" Type="Enrollment_DSSModel.Store.Faculties" Multiplicity="1" />
+    <End Role="Student" Type="Enrollment_DSSModel.Store.Students" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Faculty">
+        <PropertyRef Name="FacultyID" />
+      </Principal>
+      <Dependent Role="Student">
+        <PropertyRef Name="FacultyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Enrollment_DSSModel" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="Enrollment_DSSEntities" annotation:LazyLoadingEnabled="true" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+          <EntitySet Name="Logs" EntityType="Enrollment_DSSModel.Log" />
+          <EntitySet Name="Faculties" EntityType="Enrollment_DSSModel.Faculty" />
+          <EntitySet Name="Students" EntityType="Enrollment_DSSModel.Student" />
+          <EntitySet Name="ImageStores" EntityType="Enrollment_DSSModel.ImageStore" />
+          <EntitySet Name="Rooms" EntityType="Enrollment_DSSModel.Room" />
+          <EntitySet Name="RowRooms" EntityType="Enrollment_DSSModel.RowRoom" />
+          <AssociationSet Name="RowRoomRoom" Association="Enrollment_DSSModel.RowRoomRoom">
+            <End Role="RowRoom" EntitySet="RowRooms" />
+            <End Role="Room" EntitySet="Rooms" />
+          </AssociationSet>
+          <EntitySet Name="Accounts" EntityType="Enrollment_DSSModel.Account" />
+          <EntitySet Name="NhanViens" EntityType="Enrollment_DSSModel.NhanVien" />
+          <EntitySet Name="Roles" EntityType="Enrollment_DSSModel.Role" />
+          <AssociationSet Name="FK_Account_Role" Association="Enrollment_DSSModel.FK_Account_Role">
+            <End Role="Role" EntitySet="Roles" />
+            <End Role="Account" EntitySet="Accounts" />
+          </AssociationSet>
+          <AssociationSet Name="RoomStudent" Association="Enrollment_DSSModel.RoomStudent">
+            <End Role="Room" EntitySet="Rooms" />
+            <End Role="Student" EntitySet="Students" />
+          </AssociationSet>
+          <AssociationSet Name="FacultyStudent" Association="Enrollment_DSSModel.FacultyStudent">
+            <End Role="Faculty" EntitySet="Faculties" />
+            <End Role="Student" EntitySet="Students" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Log">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="String" Name="UserName" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Time" />
+          <Property Type="String" Name="NoiDung" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="PhanHe" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Faculty">
+          <Key>
+            <PropertyRef Name="FacultyID" />
+          </Key>
+          <Property Type="String" Name="FacultyID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="FacultyName" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Students" Relationship="Enrollment_DSSModel.FacultyStudent" FromRole="Faculty" ToRole="Student" />
+        </EntityType>
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="StudentID" />
+          </Key>
+          <Property Type="String" Name="StudentID" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="FirstName" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LastName" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Sex" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="BirthDay" />
+          <Property Type="String" Name="ClassID" MaxLength="20" />
+          <Property Type="String" Name="Address" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Ethnic" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Religion" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Phone" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="IntoSchoolYear" Type="String" Unicode="false" MaxLength="4" />
+          <Property Type="String" Name="FacultyID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="IdentityNo" Nullable="false" Unicode="false" MaxLength="20" />
+          <Property Type="DateTime" Name="ValidityDate" Nullable="false" />
+          <Property Type="String" Name="Province" Nullable="false" Unicode="true" MaxLength="200" />
+          <NavigationProperty Name="Room" Relationship="Enrollment_DSSModel.RoomStudent" FromRole="Student" ToRole="Room" />
+          <Property Type="String" Name="RoomID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Faculty" Relationship="Enrollment_DSSModel.FacultyStudent" FromRole="Student" ToRole="Faculty" />
+        </EntityType>
+        <EntityType Name="ImageStore">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="String" Name="OriginalPath" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Binary" Name="ImageData" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Room">
+          <Key>
+            <PropertyRef Name="RoomID" />
+          </Key>
+          <Property Type="String" Name="RoomID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Name" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Note" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RowID" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
+          <Property Type="Int32" Name="MaxStudent" />
+          <Property Type="Boolean" Name="Status" Nullable="false" />
+          <NavigationProperty Name="RowRoom" Relationship="Enrollment_DSSModel.RowRoomRoom" FromRole="Room" ToRole="RowRoom" />
+          <NavigationProperty Name="Students" Relationship="Enrollment_DSSModel.RoomStudent" FromRole="Room" ToRole="Student" />
+        </EntityType>
+        <EntityType Name="RowRoom">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="String" Name="ID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Name" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Block" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
+          <Property Type="Int32" Name="Floor" />
+          <Property Type="String" Name="Note" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Rooms" Relationship="Enrollment_DSSModel.RowRoomRoom" FromRole="RowRoom" ToRole="Room" />
+        </EntityType>
+        <Association Name="RowRoomRoom">
+          <End Type="Enrollment_DSSModel.RowRoom" Role="RowRoom" Multiplicity="0..1" />
+          <End Type="Enrollment_DSSModel.Room" Role="Room" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RowRoom">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Room">
+              <PropertyRef Name="RowID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Account">
+          <Key>
+            <PropertyRef Name="UserName" />
+          </Key>
+          <Property Type="String" Name="UserName" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Type="String" Name="Password" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="RoleID" />
+          <NavigationProperty Name="Role" Relationship="Enrollment_DSSModel.FK_Account_Role" FromRole="Account" ToRole="Role" />
+        </EntityType>
+        <EntityType Name="NhanVien">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Nullable="false" Type="Int32" />
+          <Property Name="HoTen" MaxLength="Max" FixedLength="false" Unicode="true" Type="String" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="RoleID" />
+          </Key>
+          <Property Type="Int32" Name="RoleID" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="String" Name="RoleName" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Accounts" Relationship="Enrollment_DSSModel.FK_Account_Role" FromRole="Role" ToRole="Account" />
+        </EntityType>
+        <Association Name="FK_Account_Role">
+          <End Type="Enrollment_DSSModel.Role" Role="Role" Multiplicity="0..1" />
+          <End Type="Enrollment_DSSModel.Account" Role="Account" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="RoleID" />
+            </Principal>
+            <Dependent Role="Account">
+              <PropertyRef Name="RoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RoomStudent">
+          <End Type="Enrollment_DSSModel.Room" Role="Room" Multiplicity="1" />
+          <End Type="Enrollment_DSSModel.Student" Role="Student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Room">
+              <PropertyRef Name="RoomID" />
+            </Principal>
+            <Dependent Role="Student">
+              <PropertyRef Name="RoomID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FacultyStudent">
+          <End Type="Enrollment_DSSModel.Faculty" Role="Faculty" Multiplicity="1" />
+          <End Type="Enrollment_DSSModel.Student" Role="Student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Faculty">
+              <PropertyRef Name="FacultyID" />
+            </Principal>
+            <Dependent Role="Student">
+              <PropertyRef Name="FacultyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Enrollment_DSSModelStoreContainer" CdmEntityContainer="Enrollment_DSSEntities">
+    <EntitySetMapping Name="Logs">
+      <EntityTypeMapping TypeName="IsTypeOf(Enrollment_DSSModel.Log)">
+        <MappingFragment StoreEntitySet="Logs">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Time" ColumnName="Time" />
+          <ScalarProperty Name="NoiDung" ColumnName="NoiDung" />
+          <ScalarProperty Name="PhanHe" ColumnName="PhanHe" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Faculties">
+      <EntityTypeMapping TypeName="IsTypeOf(Enrollment_DSSModel.Faculty)">
+        <MappingFragment StoreEntitySet="Faculties">
+          <ScalarProperty Name="FacultyID" ColumnName="FacultyID" />
+          <ScalarProperty Name="FacultyName" ColumnName="FacultyName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Students">
+      <EntityTypeMapping TypeName="IsTypeOf(Enrollment_DSSModel.Student)">
+        <MappingFragment StoreEntitySet="Students">
+          <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Sex" ColumnName="Sex" />
+          <ScalarProperty Name="BirthDay" ColumnName="BirthDay" />
+          <ScalarProperty Name="ClassID" ColumnName="ClassID" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Ethnic" ColumnName="Ethnic" />
+          <ScalarProperty Name="Religion" ColumnName="Religion" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="IntoSchoolYear" ColumnName="IntoSchoolYear" />
+          <ScalarProperty Name="FacultyID" ColumnName="FacultyID" />
+          <ScalarProperty Name="IdentityNo" ColumnName="IdentityNo" />
+          <ScalarProperty Name="ValidityDate" ColumnName="ValidityDate" />
+          <ScalarProperty Name="Province" ColumnName="Province" />
+          <ScalarProperty Name="RoomID" ColumnName="RoomID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ImageStores">
+      <EntityTypeMapping TypeName="IsTypeOf(Enrollment_DSSModel.ImageStore)">
+        <MappingFragment StoreEntitySet="ImageStores">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="OriginalPath" ColumnName="OriginalPath" />
+          <ScalarProperty Name="ImageData" ColumnName="ImageData" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rooms">
+      <EntityTypeMapping TypeName="IsTypeOf(Enrollment_DSSModel.Room)">
+        <MappingFragment StoreEntitySet="Rooms">
+          <ScalarProperty Name="RoomID" ColumnName="RoomID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="RowID" ColumnName="RowID" />
+          <ScalarProperty Name="MaxStudent" ColumnName="MaxStudent" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RowRooms">
+      <EntityTypeMapping TypeName="IsTypeOf(Enrollment_DSSModel.RowRoom)">
+        <MappingFragment StoreEntitySet="RowRooms">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Block" ColumnName="Block" />
+          <ScalarProperty Name="Floor" ColumnName="Floor" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Accounts">
+      <EntityTypeMapping TypeName="IsTypeOf(Enrollment_DSSModel.Account)">
+        <MappingFragment StoreEntitySet="Accounts">
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NhanViens">
+      <EntityTypeMapping TypeName="IsTypeOf(Enrollment_DSSModel.NhanVien)">
+        <MappingFragment StoreEntitySet="NhanViens">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Roles">
+      <EntityTypeMapping TypeName="IsTypeOf(Enrollment_DSSModel.Role)">
+        <MappingFragment StoreEntitySet="Roles">
+          <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="Enrollment_DSS" ZoomLevel="76">
+        <EntityTypeShape EntityType="Enrollment_DSSModel.Log" Width="1.5" PointX="0.75" PointY="3.75" />
+        <EntityTypeShape EntityType="Enrollment_DSSModel.Faculty" Width="1.5" PointX="2.5" PointY="3.75" />
+        <EntityTypeShape EntityType="Enrollment_DSSModel.Student" Width="2.375" PointX="4.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Enrollment_DSSModel.ImageStore" Width="1.5" PointX="6.375" PointY="0.75" />
+        <EntityTypeShape EntityType="Enrollment_DSSModel.Room" Width="3" PointX="12.5" PointY="2.625" />
+        <EntityTypeShape EntityType="Enrollment_DSSModel.RowRoom" Width="1.5" PointX="10.125" PointY="2.625" />
+        <AssociationConnector Association="Enrollment_DSSModel.RowRoomRoom" />
+        <EntityTypeShape EntityType="Enrollment_DSSModel.Account" Width="1.5" PointX="10.625" PointY="7" />
+        <EntityTypeShape EntityType="Enrollment_DSSModel.NhanVien" PointX="7.75" PointY="3.75" Width="1.5" />
+        <EntityTypeShape EntityType="Enrollment_DSSModel.Role" Width="1.5" PointX="13.125" PointY="7" />
+        <AssociationConnector Association="Enrollment_DSSModel.FK_Account_Role" />
+        <AssociationConnector Association="Enrollment_DSSModel.RoomStudent" />
+        <AssociationConnector Association="Enrollment_DSSModel.FacultyStudent" />
+        </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

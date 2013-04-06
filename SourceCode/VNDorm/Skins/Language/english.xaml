@@ -1,0 +1,113 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <!--Application info-->
+    <system:String x:Key="lngAppName">Dorm Manager</system:String>
+    <system:String x:Key="lngAppTitle">Dorm Manager</system:String>
+
+    <system:String x:Key="lngMainTitle">Main</system:String>
+
+    <!--Ribbon menu name-->
+    <system:String x:Key="lngStartPageTabName">Start Up</system:String>
+    <system:String x:Key="lngStudent">Student</system:String>
+    <system:String x:Key="lngRoom">Room</system:String>
+    <system:String x:Key="lngEquipment">Equipment</system:String>
+    <system:String x:Key="lngStaff">Staff</system:String>
+    <system:String x:Key="lngHelp">Help</system:String>
+    <system:String x:Key="lngReport">Report</system:String>
+    <system:String x:Key="lngTool">Tool</system:String>
+    <system:String x:Key="lngAccount">Account</system:String>
+    <system:String x:Key="lngModule">Module</system:String>
+    <system:String x:Key="lngLog">Logs</system:String>
+    <system:String x:Key="lngTime">Time</system:String>
+    <system:String x:Key="lngContent">Content</system:String>
+
+    <!--File menu-->
+    <system:String x:Key="lngSetting">Setting</system:String>
+    <system:String x:Key="lngExit">Exit</system:String>
+    <system:String x:Key="lngAbout">About</system:String>
+    <system:String x:Key="lngUpdate">Update</system:String>
+    <system:String x:Key="lngOption">Option</system:String>
+    
+
+    <!--Fiels-->
+    <system:String x:Key="lngUser">User</system:String>
+    <system:String x:Key="lngPassword">Password</system:String>
+    <system:String x:Key="lngEmail">Email</system:String>
+    <system:String x:Key="lngName">Name</system:String>
+    <system:String x:Key="lngFirstName">First Name</system:String>
+    <system:String x:Key="lngLastName">Last Name</system:String>
+    <system:String x:Key="lngAddress">Address</system:String>
+    <system:String x:Key="lngClass">Class</system:String>
+    <system:String x:Key="lngTown">Town</system:String>
+    <system:String x:Key="lngFloor">Floor</system:String>
+    <system:String x:Key="lngFaculty">Faculty</system:String>
+    <system:String x:Key="lngSchoolYear">Year</system:String>
+    <system:String x:Key="lngStudentID">Student ID</system:String>
+    <system:String x:Key="lngGender">Gender</system:String>
+
+    <system:String x:Key="lngEthnicity">Ethnicity</system:String>
+    <system:String x:Key="lngBirthDay">Birth Day</system:String>
+    <system:String x:Key="lngBirthPlace">Birth Place</system:String>
+    <system:String x:Key="lngReligion">Religion</system:String>
+    <system:String x:Key="lngIdentityCard">Identity No</system:String>
+    <system:String x:Key="lngDate">Identity No</system:String>
+    <system:String x:Key="lngValidityDate">Validity date</system:String>
+    <system:String x:Key="lngPriority">Priority</system:String>
+    <system:String x:Key="lngPhoneNumber">Phone NO</system:String>
+    <system:String x:Key="lngProvince">Province</system:String>
+    <system:String x:Key="lngPermanent">Permanent address</system:String>
+    
+    
+    <!--Student info-->
+    
+
+    <!--Control-->
+    <system:String x:Key="lngImport">Import</system:String>
+    <system:String x:Key="lngExport">Export</system:String>
+    <system:String x:Key="lngSave">Save</system:String>
+    <system:String x:Key="lngAdd">Add</system:String>
+    <system:String x:Key="lngEdit">Edit</system:String>
+    <system:String x:Key="lngCancel">Cancel</system:String>
+    <system:String x:Key="lngDelete">Delete</system:String>
+    <system:String x:Key="lngReset">Reset</system:String>
+    <system:String x:Key="lngNew">New</system:String>
+    <system:String x:Key="lngLogin">Login</system:String>
+    <system:String x:Key="lngFind">Find</system:String>
+
+    <!--Student Manager-->
+    <system:String x:Key="lngAddStudent">Add new student(s)</system:String>
+    <system:String x:Key="lngAddStudentToolTip">Click here to add new students</system:String>
+    <system:String x:Key="lngImportStudent">Import student</system:String>
+    <system:String x:Key="lngExportStudent">Export student</system:String>
+    <system:String x:Key="lngPrintStudent">Print student list</system:String>
+    <system:String x:Key="lngFindStudent">Find student(s)</system:String>
+    <system:String x:Key="lngFindStudentToolTip">Click here to Find students</system:String>
+    <system:String x:Key="lngEditStudent">Edit student</system:String>
+    <system:String x:Key="lngDeleteStudent">Delete student</system:String>
+    <system:String x:Key="lngListStudent">List student</system:String>
+    
+    <!--Acount manager-->
+    <system:String x:Key="lngAddAccount">Add new account(s)</system:String>
+    <system:String x:Key="lngAddAccountToolTip">Click here to add new accounts</system:String>
+    <system:String x:Key="lngImportAccount">Import account</system:String>
+    <system:String x:Key="lngExportAccount">Export account</system:String>
+    <system:String x:Key="lngPrintAccount">Print account list</system:String>
+    <system:String x:Key="lngFindAccount">Find account(s)</system:String>
+    <system:String x:Key="lngFindAccountToolTip">Click here to Find account</system:String>
+    <system:String x:Key="lngEditAccount">Edit account</system:String>
+    <system:String x:Key="lngRole">Role</system:String>
+
+    <!--Room-->
+    <system:String x:Key="lngEnglist">English</system:String>
+    <system:String x:Key="lngVietNam">Việt Nam</system:String>
+    <system:String x:Key="lngLanguage">Language</system:String>
+    <system:String x:Key="lngAbount">About</system:String>
+
+    <system:String x:Key="lngAction">Action</system:String>
+
+
+
+    <system:String x:Key="lngStudentHelp">To export the list of student to excel format, you select all the lines, then copy and paste into MS Excel</system:String>
+    <system:String x:Key="lngAccountHelp">You can not edit username to change the username, you should delete the account, then re-create.</system:String>
+</ResourceDictionary>
